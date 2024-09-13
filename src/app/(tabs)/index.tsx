@@ -3,12 +3,16 @@ import PizzaBurger from '@/src/components/PizzaBurger';
 import pizzArray from '@/src/Data/PizzaDetail';
 import TopBarScreen
  from '@/src/components/TopBarScreen';
+
+ import CustomNavBar
+ from '@/src/components/CustomNavBar';
+
 export default function TabOneScreen() {
 
   return (
     <View style={styles.container}>
-      
-      <TopBarScreen />
+     
+      <CustomNavBar />
       <PizzaBurger myProps={pizzArray}/>
     </View>
   );

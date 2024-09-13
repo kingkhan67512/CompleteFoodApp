@@ -1,31 +1,61 @@
-import { StyleSheet, Image, View, Text, ScrollView } from 'react-native';
+import { StyleSheet, Image, View, Text, 
+  ScrollView, FlatList,
+  Touchable,
+  TouchableOpacity
+} from 'react-native';
+
+// const Item = ({mydata}) => (
+// <TouchableOpacity>
+//   <Image 
+//             source = {{uri:mydata.image}}
+            
+//             style={styles.image}
+            
+//             />
+//             <Text style={styles.title}>{mydata.title}</Text>
+//             <Text style={styles.title}>{mydata.price}</Text>
+//             </TouchableOpacity>
+            
+//           );
+
+
+
+
+          const Item = ({title}) => (
+            
+            <View style={{marginRight:10}}>
+              
+              <Image 
+            source = {{uri:title.image}}
+            
+            style={styles.image}
+            
+            />
+            <Text style={styles.title}>{title.title}</Text>
+            <Text style={styles.title}>{title.price}</Text>
+              
+
+            </View>
+
+          );
 
 export default function PizzaBurger({myProps}) {
 
   return (
     <View style={styles.container}>
-    <ScrollView>
 
-      {
-        myProps.map((data)=>{
-          return(
-            <View>
-            <Image 
-            source = {{uri:data.image}}
+
+      <FlatList
+        data={myProps}
+        renderItem={({item}) => <Item title={item} /> }
+        keyExtractor={item => item.id}
+        numColumns={2}
+      />
+
             
-            style={styles.image}
             
-            />
-            <Text style={styles.title}>{data.title}</Text>
-            <Text style={styles.title}>{data.price}</Text>
-            </View>
-          )
-        })
-      }
-     
-
-     </ScrollView>
-
+        
+    
     </View>
   );
 }
@@ -37,7 +67,7 @@ container: {
   // justifyContent: 'center',
 },
 image:{
-  width:'100%', 
+  width:200, 
   aspectRatio:2/1,
 },
 name:{
@@ -47,3 +77,13 @@ title:{
   fontSize:50
 }
 });
+
+
+
+
+{/* <FlatList
+        data={myProps}
+        renderItem={({item}) => (<Item mydata={item} />)}
+        keyExtractor={item => item.id}
+        numColumns={3}
+      /> */}
