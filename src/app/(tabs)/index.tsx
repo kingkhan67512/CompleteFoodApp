@@ -11,7 +11,6 @@ export default function TabOneScreen() {
 
   return (
     <View style={styles.container}>
-     
       <CustomNavBar />
       <PizzaBurger myProps={pizzArray}/>
     </View>
