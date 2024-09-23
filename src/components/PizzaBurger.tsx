@@ -6,15 +6,18 @@ import {
 import { Link } from 'expo-router';
 import PizzaDetailScreen from './PizzaDetailScreen';
 
+{/* <Link href={`/${title.id}`} asChild> */}
+
 const Item = ({ title }) => (
-  // <Link href={`/${title.id}`} asChild>
-  <Link href={'/NewScreen'} asChild> 
+  
+  <Link href={'/NewScreen'} asChild>
     <Pressable style={styles.renderitem}>
       <Image source={{ uri: title.image }} style={styles.image} />
       <Text style={styles.title}>{title.title}</Text>
       <Text style={styles.title}>{title.price}</Text>
     </Pressable>
     </Link>
+
 );
 
 export default function PizzaBurger({ myProps }) {
@@ -47,7 +50,7 @@ const styles = StyleSheet.create({
   renderitem:{
     flex:1,
     backgroundColor:'lightgrey',
-    // maxWidth:'33%',
+    maxWidth:'50%',
     // marginRight:10
   }
 });

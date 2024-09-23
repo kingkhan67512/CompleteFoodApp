@@ -1,17 +1,24 @@
-import {View, Text, Image, StyleSheet, Pressable} from 'react-native'
+import {View, Text, Image, StyleSheet, Pressable, Button} from 'react-native'
 
 import { useState } from 'react';
 
 const sizes = ['S', 'M', 'L', 'XL']
 
-var flag = 'M'
+const addToCart = () => {
+    console.warn('button pressed');
+}
 
 const NewScreen = () => {
-
-    const [select, setSelect] = useState('XL');
-
+    
+    const [sizeofpizza, setSizeofpizza] = useState('S')
+    const sizeSelect = (data) => {
+        // State Updation
+        setSizeofpizza(data)
+    }
+        
     return (
         <View style={styles.container}>
+            {console.log('Return is called or not')}
             <View style={styles.pizzacontainer}>
                 <Image source = {{uri:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'}}
                 style={styles.image}
@@ -24,16 +31,17 @@ const NewScreen = () => {
             {
                 sizes.map((data)=>
                 (
-                <Pressable onPress={()=> setSelect(data)} style={[styles.sizes,{backgroundColor:select===data ? 'red':'grey'}]}>
+                <Pressable onPress={()=>sizeSelect(data)} 
+                    style={[styles.sizes,{backgroundColor: sizeofpizza===data? 'grey':'lightgrey'}]}>
                     <Text style={styles.textS}> {data} </Text>
                 </Pressable>
                 )
             )
             }
-
             </View>
-
-           
+            
+            {/* <Button onPress={addToCart} title='add to cart'></Button> */}
+           {/* <Button onPress={addToCart} text="Add to Cart" /> */}
         </View>
     )
 }
