@@ -1,6 +1,5 @@
 import { StyleSheet, Image, View, Text, ScrollView } from 'react-native';
 import { green } from 'react-native-reanimated/lib/typescript/reanimated2/Colors';
-// import { ScrollView } from 'react-native-reanimated/lib/typescript/Animated';
 
 export default function TopScroll(){
 

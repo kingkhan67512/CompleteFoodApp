@@ -1,4 +1,4 @@
-import { StyleSheet, Image, View, Text } from 'react-native';
+import { StyleSheet, Image, View, Text ,ScrollView} from 'react-native';
 import PizzaBurger from '@/src/components/PizzaBurger';
 import pizzArray from '@/src/Data/PizzaDetail';
 import TopBarScreen
@@ -10,10 +10,12 @@ import TopBarScreen
 export default function TabOneScreen() {
 
   return (
+    <ScrollView>
     <View style={styles.container}>
       <CustomNavBar />
       <PizzaBurger myProps={pizzArray}/>
     </View>
+    </ScrollView>
   );
 }
 
