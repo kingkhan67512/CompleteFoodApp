@@ -1,6 +1,7 @@
 import {View, Text, Image, StyleSheet} from 'react-native'
 
 const PizzaDetailScreen = () => {
+    global.noofpizza = 4;
 
     return (
         <View>
