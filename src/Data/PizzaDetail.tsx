@@ -10,133 +10,49 @@ const pizzArray = [
       id:1,
       title:'Pizza',
       price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
+      image:'https://as1.ftcdn.net/v2/jpg/01/33/61/72/1000_F_133617244_dWdivRXwoLVzowl1kn3iFP9JGcuNd8n6.jpg'
     },
     {
       id:2,
       title:'Pizza',
       price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
+      image:'https://as1.ftcdn.net/v2/jpg/01/33/61/72/1000_F_133617244_dWdivRXwoLVzowl1kn3iFP9JGcuNd8n6.jpg'
     },
     {
       id:3,
       title:'Pizza',
       price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
+      image:'https://as2.ftcdn.net/v2/jpg/02/55/57/33/1000_F_255573369_NrbcMNYC1hz1xJigxCOCN8OXsxmtx0TB.jpg'
     },
     {
       id:4,
       title:'Pizza',
       price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
+      image:'https://as2.ftcdn.net/v2/jpg/02/39/22/51/1000_F_239225111_aw0yirX6Je4bV4g6N0c0tAUgQ3jy0bHQ.jpg'
     },
     {
       id:5,
       title:'Pizza',
       price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
+      image:'https://as1.ftcdn.net/v2/jpg/00/27/57/96/1000_F_27579652_tM7V4fZBBw8RLmZo0Bi8WhtO2EosTRFD.jpg'
     },
     {
       id:6,
       title:'Pizza',
       price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
+      image:'https://as2.ftcdn.net/v2/jpg/00/27/57/97/1000_F_27579714_MoDS6nuM0qbRegOoIBoO47vdaBS4XAOj.jpg'
     },
     {
       id:7,
       title:'Pizza',
       price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
+      image:'https://as1.ftcdn.net/v2/jpg/01/74/36/70/1000_F_174367045_6hyh7c8Mkju5Qn1O7mLQqmtfChQMdxZa.jpg'
     },
     {
       id:8,
       title:'Pizza',
       price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
-    },
-    {
-      id:9,
-      title:'Pizza',
-      price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
-    },
-
-    {
-      id:10,
-      title:'Pizza',
-      price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
-    },
-
-    {
-      id:11,
-      title:'Pizza',
-      price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
-    },
-
-    {
-      id:12,
-      title:'Pizza',
-      price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
-    },
-
-    {
-      id:13,
-      title:'Pizza',
-      price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
-    },
-
-    {
-      id:14,
-      title:'Pizza',
-      price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
-    },
-
-    {
-      id:15,
-      title:'Pizza',
-      price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
-    },
-    {
-      id:16,
-      title:'Pizza',
-      price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
-    },
-    {
-      id:17,
-      title:'Pizza',
-      price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
-    },
-    {
-      id:18,
-      title:'Pizza',
-      price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
-    },
-    {
-      id:19,
-      title:'Pizza',
-      price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
-    },
-    {
-      id:20,
-      title:'Pizza',
-      price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
-    },
-    {
-      id:21,
-      title:'Pizza',
-      price:'16$',
-      image:'https://img.freepik.com/free-photo/pizza-pizza-filled-with-tomatoes-salami-olives_140725-1200.jpg?w=1060&t=st=1725779454~exp=1725780054~hmac=f3803f5db2c441313253fb049b602bc50426e57e978b3430cf2eacbd88f98064'
+      image:'https://as1.ftcdn.net/v2/jpg/01/72/87/70/1000_F_172877066_yR0IapZat16QcDKlPpb5eBcZtbe4TynH.jpg'
     }
   ]
 

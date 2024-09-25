@@ -1,16 +1,44 @@
-import {View, Text, Image, StyleSheet, Pressable} from 'react-native'
+import {View, Text, Image, StyleSheet, Pressable, Alert} from 'react-native'
 import React from 'react'
 import { useLocalSearchParams } from 'expo-router'
 import pizzArray from '@/src/Data/PizzaDetail';
 const sizes = ['S','M','L','XL'];
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+import { WebView } from 'react-native-webview';
 
 const ProductDetail = () => {
+
+
     const {id} = useLocalSearchParams();
+    console.log('[id] =', id)
     const product = pizzArray.find((p) => p.id.toString()===id)
-    console.log(product)
+    console.log('Product is =', product)
     const [sizeOfPizza, setSizeOfPizza] = useState('M');
     
+        // return <WebView source={{ uri: 'https://reactnative.dev/' }} style={{ flex: 1 }} />;
+
+
+        // useEffect(()=>{
+        //     console.log('In The name of Allah Product Detail')
+        //   },[])
+
+ useEffect (()=>{
+    return()=>{
+      console.log('Main Wapis Ja raha hun');
+    }
+  },[])
+
+    
+useEffect(()=>{
+    console.log('addToCart useEffect');
+  },[])
+
+  const addToCart=()=>{
+    global.noofpizza = 100;
+    Alert.alert('Pressed');
+  }
+
     return (
         <View style={styles.container}>
             <Image source = {{uri:product?.image}} 
@@ -28,6 +56,10 @@ const ProductDetail = () => {
             )
             }
             </View>
+
+            <Pressable onPress={addToCart}> 
+                <Text> Ad To Cart </Text>
+            </Pressable>
         </View>
     )
 }

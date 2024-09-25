@@ -3,23 +3,60 @@ import {
   FlatList, Pressable
 } from 'react-native';
 
-import { Link } from 'expo-router';
+import { Link, useFocusEffect } from 'expo-router';
 import PizzaDetailScreen from './PizzaDetailScreen';
+import { useEffect, useState } from 'react';
+
 
 const Item = ({ title }) => (
-  // <Link href={`/${title.id}`} asChild>
-  <Link href={'/NewScreen'} asChild> 
+  
+  // <Link href={'/GoToAddToCart'} asChild>
+
+  <Link href={`/${title.id}`} asChild>
+
     <Pressable style={styles.renderitem}>
       <Image source={{ uri: title.image }} style={styles.image} />
       <Text style={styles.title}>{title.title}</Text>
       <Text style={styles.title}>{title.price}</Text>
     </Pressable>
     </Link>
+
 );
 
 export default function PizzaBurger({ myProps }) {
+
+  const [count, setCount] = useState(global.noofpizza);
+
+  useFocusEffect(() => {
+    setCount(global.noofpizza);
+    console.log('Jaatay huay and aatay huay')
+  });
+
+  // useFocusEffect (()=>{
+  //   console.log('useFocusEffect');
+  // })
+
+
+  // useEffect(()=>{
+  //   console.log('In The name of Allah Previous Screen')
+  // },[])
+
+  // useEffect(()=>{
+  //   console.log('is this called or not');
+  //   // setCount(global.noofpizza)
+  //   // Place Trigger Here
+  // },[])
+
+  const weWantToRefreshComponent=()=>{
+    console.log('is this called');
+  }
+
   return (
     <View style={styles.container}>
+      {console.log('No of Pizza')}
+      
+      <Text style={{fontSize:40}}> {global.noofpizza} </Text>
+      
       <FlatList
         data={myProps}
         renderItem={({ item }) => <Item title={item} />}
@@ -47,7 +84,7 @@ const styles = StyleSheet.create({
   renderitem:{
     flex:1,
     backgroundColor:'lightgrey',
-    // maxWidth:'33%',
+    maxWidth:'50%',
     // marginRight:10
   }
 });
