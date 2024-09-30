@@ -2,27 +2,20 @@ import { useEffect } from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native'
 
 const PizzaDetailScreen = () => {
-    
-    let flag:number = 12;
-    // flag = 'Hello';
 
- 
+    let flag = 12;
+    flag = 'Hello';
 
-    function myFun(myDocument:number):number{
-        console.log('I am testing JS', myDocument);
-
-        let arr:(number|string| boolean)[] = [12,'32',false,'gh'];
-        console.log(arr);
-        arr.push(34);
-        arr.push('34');
-        arr.push('true');
-
-        return 23;
+    let arr = [12,23,'Hello'];
+    function myFun(myDocument){
+        console.log('I am testing JS');
+        return 'Hello';
     }
 
     useEffect(()=>{
         myFun(12);
-    },[])
+    })
+    // let flag:number = 12;
 
     return (
         <View>
