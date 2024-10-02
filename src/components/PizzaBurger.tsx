@@ -12,22 +12,29 @@ type productListItemProps = {
   product: Product 
 }
 
+ // <Link href={'/GoToAddToCart'} asChild>
+  // <Link href={`/${title.id}`} asChild>
+    {/* </Link> */}
+
 const Item = ({title}:productListItemProps) => (
-  
-  // <Link href={'/GoToAddToCart'} asChild>
-
-  <Link href={`/${title.id}`} asChild>
-
-    <Pressable style={styles.renderitem}>
+    <Pressable style={styles.renderitem}
+      onPress={testingFontandSize}>
       <Image source={{ uri: title.image }} style={styles.image} />
       <Text style={styles.title}>{title.title}</Text>
       <Text style={styles.title}>{title.price}</Text>
     </Pressable>
-    </Link>
 
 );
 
+let newfont = 50;
+
 export default function PizzaBurger({myProps}:any) {
+
+  console.log('Top Area');
+
+  const [font, setFont] = useState(12);
+  const [size, setSize] = useState(50);
+  const [data, setData] = useState([]);
 
   var flag;
   flag = 12;
@@ -102,43 +109,97 @@ export default function PizzaBurger({myProps}:any) {
     name: string;
     price: number;
   };
-  
+
+  // useEffect(()=>{
+  //   let abc = mufun(12);
+  //   console.log('student',student1);
+  // },[])
+
+  const getMovies = async () => {
+    try {
+      const response = await fetch('https://simple-grocery-store-api.online/products');
+      const json = await response.json();
+      console.log('Movies List is =',json)
+      setData(json);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      // setLoading(false);
+    }
+  };
+
   useEffect(()=>{
-    let abc = mufun(12);
-    console.log('student',student1);
+    console.log('Empty useEffect');
+  })
+
+  useEffect(()=>{
+    console.log('useEffect []');
+    getProducts();
   },[])
 
-  const [count, setCount] = useState(global.noofpizza);
+  // useEffect(()=>{
+  //   console.log('font []');
+  // },[font])
 
-  useFocusEffect(() => {
-    setCount(global.noofpizza);
-    console.log('Jaatay huay and aatay huay')
-  });
+  // useEffect(()=>{
+  //   console.log('size []');
+  // },[size])
+
+  // useEffect(()=>{
+  //   console.log('font and size []');
+  // },[font,size])
+
+  const testingFontandSize = () =>{
+    console.log('Button Pressed');
+    newfont+=1;
+    setFont(newfont);
+  }
+
+  // const [count, setCount] = useState(global.noofpizza);
+
+  // useFocusEffect(() => {
+  //   setCount(global.noofpizza);
+  //   // console.log('Jaatay huay and aatay huay')
+  // });
 
   // useFocusEffect (()=>{
   //   console.log('useFocusEffect');
   // })
-
-
   
 
-  // useEffect(()=>{
-  //   console.log('is this called or not');
-  //   // setCount(global.noofpizza)
-  //   // Place Trigger Here
-  // },[])
 
-  const weWantToRefreshComponent=()=>{
-    console.log('is this called');
-  }
+  const getProducts = async () => {
+    try {
+      const response = await fetch('https://simple-grocery-store-api.online/products');
+      const json = await response.json();
+      console.log(json)
+      setData(json);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      // setLoading(false);
+    }
+  };
 
   return (
     <View style={styles.container}>
-      {console.log('No of Pizza')}
+      {console.log('I am in Return')}
       <Text style={{fontSize:40}}> {global.noofpizza} </Text>
       <FlatList
-        data={myProps}
-        renderItem={({ item }) => <Item title={item} />}
+        data={data}
+        renderItem={({ item }) => 
+        // <Item title={item} />
+        (
+          <Pressable style={styles.renderitem}
+            onPress={testingFontandSize}>
+            <Image source={{ uri: item.image }} style={styles.image} />
+            <Text style={styles.title}>ID: {item.id}</Text>
+            <Text style={styles.title}>Name: {item.name}</Text>
+            <Text style={styles.title}>Category: {item.category}</Text>
+            <Text style={styles.title}>In Stock: {item.instock}</Text>
+          </Pressable>
+        )
+      }
         keyExtractor={item => item.id}
         numColumns={2}
         contentContainerStyle = {{gap:10, padding:10}}
