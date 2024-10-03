@@ -7,6 +7,7 @@ import { Link, useFocusEffect } from 'expo-router';
 import PizzaDetailScreen from './PizzaDetailScreen';
 import { useEffect, useState } from 'react';
 import { Product } from '../Data/types';
+import urllist from './apiurllist'
 
 type productListItemProps = {
   product: Product 
@@ -28,13 +29,21 @@ const Item = ({title}:productListItemProps) => (
 
 let newfont = 50;
 
+import GetAPICustomHook from './getAPICustomHook'
+
 export default function PizzaBurger({myProps}:any) {
 
   console.log('Top Area');
 
+  let url = urllist.baseURL+urllist.productslist;
+  
+
+  const {data} = GetAPICustomHook(url);
+
+
   const [font, setFont] = useState(12);
   const [size, setSize] = useState(50);
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
   var flag;
   flag = 12;
@@ -134,7 +143,7 @@ export default function PizzaBurger({myProps}:any) {
 
   useEffect(()=>{
     console.log('useEffect []');
-    getProducts();
+    // getProducts();
   },[])
 
   // useEffect(()=>{
@@ -165,21 +174,6 @@ export default function PizzaBurger({myProps}:any) {
   // useFocusEffect (()=>{
   //   console.log('useFocusEffect');
   // })
-  
-
-
-  const getProducts = async () => {
-    try {
-      const response = await fetch('https://simple-grocery-store-api.online/products');
-      const json = await response.json();
-      console.log(json)
-      setData(json);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      // setLoading(false);
-    }
-  };
 
   return (
     <View style={styles.container}>
