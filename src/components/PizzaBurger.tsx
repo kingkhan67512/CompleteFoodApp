@@ -1,6 +1,7 @@
 import {
   StyleSheet, Image, View, Text,
-  FlatList, Pressable
+  FlatList, Pressable,
+  Alert
 } from 'react-native';
 
 import { Link, useFocusEffect } from 'expo-router';
@@ -8,6 +9,9 @@ import PizzaDetailScreen from './PizzaDetailScreen';
 import { useEffect, useState } from 'react';
 import { Product } from '../Data/types';
 import urllist from './apiurllist'
+import myglobalurls from './myglobalurls'
+import GetAPI from './GetAPI';
+import { supabase } from './supabase';
 
 type productListItemProps = {
   product: Product 
@@ -32,14 +36,13 @@ let newfont = 50;
 import GetAPICustomHook from './getAPICustomHook'
 
 export default function PizzaBurger({myProps}:any) {
-
-  console.log('Top Area');
-
-  let url = urllist.baseURL+urllist.productslist;
+  let producturl = myglobalurls.baseURL+myglobalurls.productslist;
+  const {data} = GetAPI(producturl);
+  const [base, setBase] = useState([]);
   
-
-  const {data} = GetAPICustomHook(url);
-
+  console.log('Top Area');
+  
+  // const {data} = GetAPICustomHook(url);
 
   const [font, setFont] = useState(12);
   const [size, setSize] = useState(50);
@@ -124,26 +127,23 @@ export default function PizzaBurger({myProps}:any) {
   //   console.log('student',student1);
   // },[])
 
-  const getMovies = async () => {
-    try {
-      const response = await fetch('https://simple-grocery-store-api.online/products');
-      const json = await response.json();
-      console.log('Movies List is =',json)
-      setData(json);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      // setLoading(false);
-    }
-  };
-
   useEffect(()=>{
     console.log('Empty useEffect');
+    
+    
   })
 
   useEffect(()=>{
-    console.log('useEffect []');
-    // getProducts();
+    console.log('useEffect is = ')
+    const campusDataFetch = async ()=>{
+    let { data, error } = await supabase.from('campus').select('*')
+     if(error){
+      console.log(error)
+     }
+     console.log('Campus Data Check Karo==', data);
+     setBase(data);
+    }
+    campusDataFetch();
   },[])
 
   // useEffect(()=>{
@@ -175,22 +175,27 @@ export default function PizzaBurger({myProps}:any) {
   //   console.log('useFocusEffect');
   // })
 
+  useEffect(()=>{
+    // getList();
+  },[])
+
   return (
     <View style={styles.container}>
       {console.log('I am in Return')}
       <Text style={{fontSize:40}}> {global.noofpizza} </Text>
       <FlatList
-        data={data}
+        data={base}
         renderItem={({ item }) => 
         // <Item title={item} />
         (
           <Pressable style={styles.renderitem}
             onPress={testingFontandSize}>
-            <Image source={{ uri: item.image }} style={styles.image} />
-            <Text style={styles.title}>ID: {item.id}</Text>
-            <Text style={styles.title}>Name: {item.name}</Text>
-            <Text style={styles.title}>Category: {item.category}</Text>
-            <Text style={styles.title}>In Stock: {item.instock}</Text>
+            {/* <Image source={{ uri: item.image }} style={styles.image} /> */}
+            {/* <Text style={styles.title}>ID: {item.id}</Text> */}
+            <Text style={styles.title}>Name: {item.title}</Text>
+            <Text style={styles.title}>City: {item.city}</Text>
+            <Text style={styles.title}>Dept: {item.dept[1]}</Text>
+            {/* <Text style={styles.title}>In Stock: {item.instock}</Text> */}
           </Pressable>
         )
       }
@@ -222,3 +227,30 @@ const styles = StyleSheet.create({
     // marginRight:10
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// console.log('useEffect is = []');
+//     const fetchCampusData = async ()=>{
+//       console.log('fetchPolls is called');
+//       let { data, error } = await supabase.from('campus').select('*')
+//       if(error){
+//         console.log('error is = ',error);
+//       }
+//       console.log('Data is = ',data[0].campus);
+//       setBase(data);
+//       console.log('supabase is = ',base);
+//     }
+    // fetchCampusData();
